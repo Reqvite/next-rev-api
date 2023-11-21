@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_inputs",
+  "info": {
+    "displayName": "Input",
+    "icon": "collapse"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "email",
+        "number",
+        "tel"
+      ]
+    }
+  }
+}
