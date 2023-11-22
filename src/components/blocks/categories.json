@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blocks_categories",
+  "info": {
+    "displayName": "Categories",
+    "icon": "shoppingCart",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

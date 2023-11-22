@@ -1,5 +1,50 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BlocksBenefits extends Schema.Component {
+  collectionName: 'components_blocks_benefits';
+  info: {
+    displayName: 'Benefits';
+    icon: 'connector';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+  };
+}
+
+export interface BlocksCategories extends Schema.Component {
+  collectionName: 'components_blocks_categories';
+  info: {
+    displayName: 'Categories';
+    icon: 'shoppingCart';
+    description: '';
+  };
+  attributes: {
+    categories: Attribute.Relation<
+      'blocks.categories',
+      'oneToMany',
+      'api::category.category'
+    >;
+    title: Attribute.String;
+  };
+}
+
+export interface BlocksHero extends Schema.Component {
+  collectionName: 'components_blocks_heroes';
+  info: {
+    displayName: 'Hero';
+    icon: 'apps';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    img: Attribute.Media;
+    buttons: Attribute.Component<'links.button-link', true>;
+    benefits: Attribute.Component<'blocks.benefits', true>;
+  };
+}
+
 export interface ButtonsButton extends Schema.Component {
   collectionName: 'components_buttons_buttons';
   info: {
@@ -185,6 +230,9 @@ export interface SharedText extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'blocks.benefits': BlocksBenefits;
+      'blocks.categories': BlocksCategories;
+      'blocks.hero': BlocksHero;
       'buttons.button': ButtonsButton;
       'layout.footer': LayoutFooter;
       'layout.logo': LayoutLogo;
