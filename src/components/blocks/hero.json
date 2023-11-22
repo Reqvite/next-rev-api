@@ -28,11 +28,6 @@
       "type": "component",
       "repeatable": true,
       "component": "links.button-link"
-    },
-    "benefits": {
-      "type": "component",
-      "repeatable": true,
-      "component": "blocks.benefits"
     }
   }
 }

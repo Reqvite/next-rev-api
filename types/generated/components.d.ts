@@ -41,7 +41,6 @@ export interface BlocksHero extends Schema.Component {
     description: Attribute.Text;
     img: Attribute.Media;
     buttons: Attribute.Component<'links.button-link', true>;
-    benefits: Attribute.Component<'blocks.benefits', true>;
   };
 }
 
