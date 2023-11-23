@@ -2,7 +2,8 @@
   "collectionName": "components_shared_inputs",
   "info": {
     "displayName": "Input",
-    "icon": "collapse"
+    "icon": "collapse",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -15,7 +16,22 @@
         "text",
         "email",
         "number",
-        "tel"
+        "tel",
+        "password"
+      ]
+    },
+    "htmlFor": {
+      "type": "string"
+    },
+    "placeHolder": {
+      "type": "string"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "floating",
+        "primary",
+        "secondary"
       ]
     }
   }

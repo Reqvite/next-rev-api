@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_blocks_auth_forms",
+  "info": {
+    "displayName": "AuthForm",
+    "icon": "code",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "linkTitle": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.input"
+    },
+    "forgotPasswordTitle": {
+      "type": "string"
+    },
+    "submitButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.button"
+    },
+    "anotherVariantsTitle": {
+      "type": "string"
+    }
+  }
+}

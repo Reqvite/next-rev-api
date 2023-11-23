@@ -1,5 +1,24 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BlocksAuthForm extends Schema.Component {
+  collectionName: 'components_blocks_auth_forms';
+  info: {
+    displayName: 'AuthForm';
+    icon: 'code';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.String;
+    linkTitle: Attribute.String;
+    href: Attribute.String;
+    inputs: Attribute.Component<'shared.input', true>;
+    forgotPasswordTitle: Attribute.String;
+    submitButton: Attribute.Component<'buttons.button'>;
+    anotherVariantsTitle: Attribute.String;
+  };
+}
+
 export interface BlocksBenefits extends Schema.Component {
   collectionName: 'components_blocks_benefits';
   info: {
@@ -156,10 +175,14 @@ export interface SharedInput extends Schema.Component {
   info: {
     displayName: 'Input';
     icon: 'collapse';
+    description: '';
   };
   attributes: {
     label: Attribute.String;
-    type: Attribute.Enumeration<['text', 'email', 'number', 'tel']>;
+    type: Attribute.Enumeration<['text', 'email', 'number', 'tel', 'password']>;
+    htmlFor: Attribute.String;
+    placeHolder: Attribute.String;
+    variant: Attribute.Enumeration<['floating', 'primary', 'secondary']>;
   };
 }
 
@@ -229,6 +252,7 @@ export interface SharedText extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'blocks.auth-form': BlocksAuthForm;
       'blocks.benefits': BlocksBenefits;
       'blocks.categories': BlocksCategories;
       'blocks.hero': BlocksHero;

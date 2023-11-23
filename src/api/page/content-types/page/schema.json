@@ -31,10 +31,7 @@
         }
       },
       "type": "dynamiczone",
-      "components": [
-        "blocks.hero",
-        "blocks.categories"
-      ]
+      "components": ["blocks.hero", "blocks.categories", "blocks.auth-form"]
     },
     "metaData": {
       "type": "component",

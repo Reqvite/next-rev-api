@@ -844,7 +844,7 @@ export interface ApiPagePage extends Schema.CollectionType {
         };
       }>;
     contentSections: Attribute.DynamicZone<
-      ['blocks.hero', 'blocks.categories']
+      ['blocks.hero', 'blocks.categories', 'blocks.auth-form']
     > &
       Attribute.SetPluginOptions<{
         i18n: {
