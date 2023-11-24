@@ -15,7 +15,7 @@
     "title": {
       "type": "string"
     },
-    "descroption": {
+    "description": {
       "type": "string"
     },
     "imgs": {
@@ -37,6 +37,12 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::category.category",
+      "inversedBy": "businesses"
+    },
+    "tag": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tag.tag",
       "inversedBy": "businesses"
     }
   }

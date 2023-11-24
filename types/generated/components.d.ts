@@ -113,6 +113,7 @@ export interface LayoutNavbar extends Schema.Component {
     buttons: Attribute.Component<'links.button-link', true>;
     navbarLogo: Attribute.Component<'layout.logo'>;
     searchInput: Attribute.Component<'shared.input'>;
+    logoutBtn: Attribute.Component<'buttons.button'>;
   };
 }
 

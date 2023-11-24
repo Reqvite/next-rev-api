@@ -27,6 +27,11 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.input"
+    },
+    "logoutBtn": {
+      "type": "component",
+      "repeatable": false,
+      "component": "buttons.button"
     }
   }
 }
