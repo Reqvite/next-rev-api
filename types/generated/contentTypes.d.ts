@@ -631,7 +631,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -659,6 +658,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.user',
       'manyToOne',
       'plugin::users-permissions.role'
+    >;
+    reviews: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::review.review'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -689,7 +693,7 @@ export interface ApiBusinessBusiness extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
+    title: Attribute.String & Attribute.Required;
     description: Attribute.String;
     imgs: Attribute.Media;
     slug: Attribute.UID<'api::business.business', 'title'>;
@@ -698,11 +702,21 @@ export interface ApiBusinessBusiness extends Schema.CollectionType {
       'manyToOne',
       'api::category.category'
     >;
-    tag: Attribute.Relation<
+    tags: Attribute.Relation<
       'api::business.business',
       'manyToOne',
       'api::tag.tag'
     >;
+    site: Attribute.String;
+    location: Attribute.String;
+    phone: Attribute.String;
+    reviews: Attribute.Relation<
+      'api::business.business',
+      'oneToMany',
+      'api::review.review'
+    >;
+    address: Attribute.String;
+    workDays: Attribute.Component<'shared.text', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -910,6 +924,47 @@ export interface ApiPagePage extends Schema.CollectionType {
   };
 }
 
+export interface ApiReviewReview extends Schema.CollectionType {
+  collectionName: 'reviews';
+  info: {
+    singularName: 'review';
+    pluralName: 'reviews';
+    displayName: 'Review';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    text: Attribute.String;
+    business: Attribute.Relation<
+      'api::review.review',
+      'manyToOne',
+      'api::business.business'
+    >;
+    user: Attribute.Relation<
+      'api::review.review',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::review.review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::review.review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -933,17 +988,17 @@ export interface ApiTagTag extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    businesses: Attribute.Relation<
-      'api::tag.tag',
-      'oneToMany',
-      'api::business.business'
-    >;
     color: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
+    businesses: Attribute.Relation<
+      'api::tag.tag',
+      'oneToMany',
+      'api::business.business'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -980,6 +1035,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::page.page': ApiPagePage;
+      'api::review.review': ApiReviewReview;
       'api::tag.tag': ApiTagTag;
     }
   }

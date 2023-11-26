@@ -24,12 +24,6 @@
       },
       "type": "string"
     },
-    "businesses": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::business.business",
-      "mappedBy": "tag"
-    },
     "color": {
       "pluginOptions": {
         "i18n": {
@@ -37,6 +31,12 @@
         }
       },
       "type": "string"
+    },
+    "businesses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::business.business",
+      "mappedBy": "tags"
     }
   }
 }

@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
       "type": "string"
@@ -39,11 +40,34 @@
       "target": "api::category.category",
       "inversedBy": "businesses"
     },
-    "tag": {
+    "tags": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::tag.tag",
       "inversedBy": "businesses"
+    },
+    "site": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "business"
+    },
+    "address": {
+      "type": "string"
+    },
+    "workDays": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.text"
     }
   }
 }
