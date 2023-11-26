@@ -64,7 +64,7 @@
     "address": {
       "type": "string"
     },
-    "workDays": {
+    "schedule": {
       "type": "component",
       "repeatable": true,
       "component": "shared.text"

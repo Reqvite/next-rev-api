@@ -716,7 +716,7 @@ export interface ApiBusinessBusiness extends Schema.CollectionType {
       'api::review.review'
     >;
     address: Attribute.String;
-    workDays: Attribute.Component<'shared.text', true>;
+    schedule: Attribute.Component<'shared.text', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
