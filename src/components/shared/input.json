@@ -31,7 +31,8 @@
       "enum": [
         "floating",
         "primary",
-        "secondary"
+        "secondary",
+        "clear"
       ]
     }
   }

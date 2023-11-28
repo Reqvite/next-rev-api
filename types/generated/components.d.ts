@@ -112,7 +112,7 @@ export interface LayoutNavbar extends Schema.Component {
     links: Attribute.Component<'links.link', true>;
     buttons: Attribute.Component<'links.button-link', true>;
     navbarLogo: Attribute.Component<'layout.logo'>;
-    searchInput: Attribute.Component<'shared.input'>;
+    inputs: Attribute.Component<'shared.input', true>;
     logoutBtn: Attribute.Component<'buttons.button'>;
   };
 }
@@ -183,7 +183,9 @@ export interface SharedInput extends Schema.Component {
     type: Attribute.Enumeration<['text', 'email', 'number', 'tel', 'password']>;
     htmlFor: Attribute.String;
     placeHolder: Attribute.String;
-    variant: Attribute.Enumeration<['floating', 'primary', 'secondary']>;
+    variant: Attribute.Enumeration<
+      ['floating', 'primary', 'secondary', 'clear']
+    >;
   };
 }
 
